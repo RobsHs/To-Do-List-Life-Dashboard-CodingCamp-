@@ -1,0 +1,29 @@
+{
+  "projectName": "To-Do List Life Dashboard",
+  "track": "CodingCamp CCSE",
+  "technicalConstraints": {
+    "TC-1": {
+      "stack": "HTML, CSS, Vanilla JavaScript",
+      "frameworks": "None (No React, Vue, etc.)",
+      "backend": "None required"
+    },
+    "TC-2": {
+      "storage": "Browser Local Storage API",
+      "scope": "Client-side only"
+    },
+    "TC-3": {
+      "compatibility": ["Chrome", "Firefox", "Edge", "Safari"],
+      "deployTarget": "GitHub Pages / Standalone web app"
+    }
+  },
+  "nonFunctionalRequirements": {
+    "NFR-1": "Simplicity: Clean, minimal interface, easy to use",
+    "NFR-2": "Performance: Fast load time, responsive UI, zero noticeable lag",
+    "NFR-3": "Visual Design: User-friendly aesthetic, clear visual hierarchy, readable typography"
+  },
+  "chosenChallenges": [
+    "Light / Dark mode",
+    "Custom name in greeting",
+    "Prevent duplicate tasks"
+  ]
+}

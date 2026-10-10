@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List Life Dashboard</title>
+  <!-- Single CSS file per folder rules -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header / Utility Toolbar (Challenge 1: Light / Dark Mode) -->
+  <header class="dashboard-header">
+    <div class="header-container">
+      <div class="brand-title">Life Dashboard</div>
+      <div class="header-actions">
+        <button id="theme-toggle" class="btn-icon" title="Toggle Light/Dark Mode" aria-label="Toggle Theme">
+          <span class="theme-icon" id="theme-icon">🌙</span>
+          <span class="theme-label" id="theme-label">Dark</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Dashboard Container -->
+  <main class="dashboard-main">
+    <!-- Top Card: Greeting, Clock & Date (Challenge 2: Custom Name in Greeting) -->
+    <section class="card greeting-card" aria-label="Greeting and Clock">
+      <div class="clock-display" id="clock-display">00:00:00</div>
+      <div class="date-display" id="date-display">Loading date...</div>
+      <div class="greeting-row">
+        <h1 class="greeting-text" id="greeting-text">Good Morning</h1>
+        <button id="edit-name-btn" class="btn-text-edit" title="Change your name" aria-label="Edit name">
+          ✏️ <span id="name-display-tag">Set Name</span>
+        </button>
+      </div>
+      <!-- Inline Name Edit Form -->
+      <div id="name-form-container" class="name-form-container hidden">
+        <input type="text" id="name-input" placeholder="Enter your name" maxlength="30" />
+        <button id="save-name-btn" class="btn btn-primary btn-sm">Save</button>
+        <button id="cancel-name-btn" class="btn btn-secondary btn-sm">Cancel</button>
+      </div>
+    </section>
+
+    <!-- Middle Row: Focus Timer & Tasks Grid -->
+    <div class="grid-two-columns">
+      <!-- Left Card: Focus Timer (Standard 25-minute Pomodoro) -->
+      <section class="card timer-card" aria-label="Focus Timer">
+        <div class="card-header">
+          <h2 class="card-title">Focus Timer</h2>
+        </div>
+
+        <div class="timer-display" id="timer-display">25:00</div>
+
+        <div class="timer-controls">
+          <button id="timer-start" class="btn btn-primary">Start</button>
+          <button id="timer-stop" class="btn btn-secondary">Stop</button>
+          <button id="timer-reset" class="btn btn-outline">Reset</button>
+        </div>
+      </section>
+
+      <!-- Right Card: Tasks (Challenge 3: Prevent Duplicate Tasks) -->
+      <section class="card tasks-card" aria-label="Tasks List">
+        <div class="card-header">
+          <h2 class="card-title">Tasks</h2>
+        </div>
+
+        <!-- Add Task Input Form -->
+        <form id="add-task-form" class="task-input-row" onsubmit="return false;">
+          <input type="text" id="task-input" placeholder="Add a new task..." autocomplete="off" />
+          <button type="submit" id="add-task-btn" class="btn btn-primary">Add</button>
+        </form>
+
+        <!-- Feedback Alert for Duplicate / Empty Tasks -->
+        <div id="task-alert" class="task-alert hidden" role="alert"></div>
+
+        <!-- Task Items List -->
+        <ul id="task-list" class="task-list" aria-live="polite">
+          <!-- Dynamically populated by js/app.js -->
+        </ul>
+        <div id="empty-tasks-msg" class="empty-state-msg hidden">No tasks yet. Enjoy your day!</div>
+      </section>
+    </div>
+
+    <!-- Bottom Card: Quick Links -->
+    <section class="card links-card" aria-label="Quick Links">
+      <div class="card-header">
+        <h2 class="card-title">Quick Links</h2>
+      </div>
+
+      <!-- Add Quick Link Form -->
+      <form id="add-link-form" class="link-input-row" onsubmit="return false;">
+        <input type="text" id="link-name-input" placeholder="Link name" autocomplete="off" />
+        <input type="url" id="link-url-input" placeholder="URL" autocomplete="off" />
+        <button type="submit" id="add-link-btn" class="btn btn-primary">Add Link</button>
+      </form>
+
+      <div id="link-alert" class="task-alert hidden" role="alert"></div>
+
+      <!-- Quick Links Badges/Buttons Container -->
+      <div id="quick-links-list" class="quick-links-container" aria-live="polite">
+        <!-- Dynamically populated by js/app.js -->
+      </div>
+      <div id="empty-links-msg" class="empty-state-msg hidden">No links saved yet. Add your favorite websites above.</div>
+    </section>
+  </main>
+
+  <footer class="dashboard-footer">
+    <p>To-Do List Life Dashboard &bull; CCSE CodingCamp</p>
+  </footer>
+
+  <!-- Single JavaScript file per folder rules -->
+  <script src="js/app.js" defer></script>
+</body>
+</html>
